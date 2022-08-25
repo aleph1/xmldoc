@@ -472,6 +472,8 @@ t.test('create readonly XmlDocument', function (t) {
   t.end();
 })
 
+// mutation
+
 t.test('copy XmlDocument nodes to another XmlDocument using while', function (t) {
 
   var items1 = '<items><item id="1" /><item id="2" /></items>';
