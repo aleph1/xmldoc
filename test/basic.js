@@ -457,3 +457,51 @@ t.test('toString', function (t) {
 
   t.end();
 })
+
+// manipulation
+
+t.test('create readonly XmlDocument', function (t) {
+
+  var items1 = '<items><item id="1" /><item id="2" /></items>';
+  var items1xml = new XmlDocument(items1, {
+    readonly: true
+  });
+
+  t.equal(items1xml._readonly, true);
+
+  t.end();
+})
+
+t.test('copy XmlDocument nodes to another XmlDocument using while', function (t) {
+
+  var items1 = '<items><item id="1" /><item id="2" /></items>';
+  var items2 = '<items><item id="3" /><item id="4" /></items>';
+  var items1xml = new XmlDocument(items1);
+  var items2xml = new XmlDocument(items2);
+  
+  while(items2xml.children.length) {
+    items1xml.append(items2xml.firstChild);
+  }
+
+  t.equal(items1xml.children.length, 4);
+  t.equal(items2xml.children.length, 0);
+
+  t.end();
+})
+
+t.test('copy XmlDocument nodes to another XmlDocument using eachChild', function (t) {
+
+  var items1 = '<items><item id="1" /><item id="2" /></items>';
+  var items2 = '<items><item id="3" /><item id="4" /></items>';
+  var items1xml = new XmlDocument(items1);
+  var items2xml = new XmlDocument(items2);
+
+  items2xml.eachChild(function(child){
+    items1xml.append(child);
+  });
+
+  t.equal(items1xml.children.length, 4);
+  t.equal(items2xml.children.length, 0);
+
+  t.end();
+})
