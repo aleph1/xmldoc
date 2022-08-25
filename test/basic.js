@@ -186,7 +186,9 @@ t.test('error handling', function (t) {
 t.test('tag locations', function (t) {
 
   var xmlString = '<books><book title="Twilight"/></books>';
-  var books = new XmlDocument(xmlString);
+  var books = new XmlDocument(xmlString, {
+    readonly: true
+  });
 
   var book = books.children[0];
   t.equal(book.attr.title, "Twilight");
