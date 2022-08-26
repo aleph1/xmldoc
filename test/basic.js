@@ -495,7 +495,13 @@ t.test('create XmlElement', function (t) {
 
 t.test('create XmlTextNode', function (t) {
 
-  var xmlElem = new XmlTextNode("test");
+  var xmlElem = new XmlTextNode('test');
+  
+  t.equal(xmlElem.type, 'text')
+  t.equal(xmlElem.text, 'test');
+
+  t.end();
+})
   
   t.equal(xmlElem.text, "test");
 
