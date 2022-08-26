@@ -486,6 +486,7 @@ t.test('create XmlElement', function (t) {
     }
   });
   
+  t.equal(xmlElem.type, 'element');
   t.equal(xmlElem.name, 'item');
   t.equal(xmlElem.attr.id, '1');
 
