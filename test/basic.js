@@ -1,4 +1,8 @@
 var XmlDocument = require('../').XmlDocument
+var XmlElement = require('../').XmlElement
+var XmlTextNode = require('../').XmlTextNode
+var XmlCDataNode = require('../').XmlCDataNode
+var XmlCommentNode = require('../').XmlCommentNode
 var t = require('tap')
 
 t.test('verify sax global in browser', function (t) {
