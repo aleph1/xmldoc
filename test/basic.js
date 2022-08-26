@@ -622,5 +622,13 @@ t.test('empty XmlDocument', function (t) {
   t.end();
 })
 
+t.test('empty XmlElement', function (t) {
+
+  var itemsXml = new XmlDocument(`<items><child><item id="1"/>Some text<![CDATA[<world>]]><!-- some commment --></child></items>`);
+  t.equal(itemsXml.children.length, 1);
+  t.equal(itemsXml.children[0].children.length, 4);
+  itemsXml.children[0].empty();
+  t.equal(itemsXml.children[0].children.length, 0);
+  
   t.end();
 })
