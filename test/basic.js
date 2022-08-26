@@ -612,3 +612,15 @@ t.test('prepend XmlElements', function (t) {
 
   t.end();
 })
+
+t.test('empty XmlDocument', function (t) {
+
+  var itemsXml = new XmlDocument(`<items><item id="1"/>Some text<![CDATA[<world>]]><!-- some commment --></items>`);
+  t.equal(itemsXml.children.length, 4);
+  itemsXml.empty();
+  t.equal(itemsXml.children.length, 0);
+  t.end();
+})
+
+  t.end();
+})
