@@ -462,7 +462,7 @@ t.test('toString', function (t) {
   t.end();
 })
 
-// manipulation
+// readonly
 
 t.test('create readonly XmlDocument', function (t) {
 
