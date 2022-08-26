@@ -476,6 +476,21 @@ t.test('create readonly XmlDocument', function (t) {
   t.end();
 })
 
+// creation
+t.test('create XmlElement', function (t) {
+
+  var xmlElem = new XmlElement({
+    name: 'item',
+    attributes: {
+      id: '1'
+    }
+  });
+  
+  t.equal(xmlElem.name, 'item');
+  t.equal(xmlElem.attr.id, '1');
+
+  t.end();
+})
 // mutation
 
 t.test('copy XmlDocument nodes to another XmlDocument using while', function (t) {
