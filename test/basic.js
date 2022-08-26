@@ -513,8 +513,16 @@ t.test('create XmlCDataNode', function (t) {
   t.end();
 })
 
+t.test('create XmlCommentNode', function (t) {
+
+  var xmlElem = new XmlCommentNode('test comment');
   
-  t.equal(xmlElem.text, "test");
+  t.equal(xmlElem.type, 'comment')
+  t.equal(xmlElem.comment, 'test comment');
+
+  t.end();
+})
+
 
   t.end();
 })
