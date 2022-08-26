@@ -491,6 +491,17 @@ t.test('create XmlElement', function (t) {
 
   t.end();
 })
+
+t.test('create XmlTextNode', function (t) {
+
+  var xmlElem = new XmlTextNode("test");
+  
+  t.equal(xmlElem.text, "test");
+
+  t.end();
+})
+
+
 // mutation
 
 t.test('copy XmlDocument nodes to another XmlDocument using while', function (t) {
