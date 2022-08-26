@@ -537,3 +537,40 @@ t.test('copy XmlDocument nodes to another XmlDocument using eachChild', function
 
   t.end();
 })
+
+t.test('prepend XmlElements', function (t) {
+
+  var itemsXml = new XmlDocument('<items />');
+  var item1Xml = new XmlElement({
+    name: 'item',
+    attributes: {
+      id: '1'
+    }
+  });
+  var item2Xml = new XmlElement({
+    name: 'item',
+    attributes: {
+      id: '2'
+    }
+  });
+  var item3Xml = new XmlElement({
+    name: 'item',
+    attributes: {
+      id: '3'
+    }
+  });
+
+  itemsXml.prepend(item1Xml);
+
+  t.equal(itemsXml.children.length, 1);
+  t.equal(itemsXml.children[0].attr.id, "1");
+
+  itemsXml.prepend(item3Xml, item2Xml);
+
+  t.equal(itemsXml.children.length, 3);
+  t.equal(itemsXml.children[0].attr.id, "3");
+  t.equal(itemsXml.children[1].attr.id, "2");
+  t.equal(itemsXml.children[2].attr.id, "1");
+
+  t.end();
+})
