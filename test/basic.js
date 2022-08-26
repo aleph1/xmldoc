@@ -477,6 +477,7 @@ t.test('create readonly XmlDocument', function (t) {
 })
 
 // creation
+
 t.test('create XmlElement', function (t) {
 
   var xmlElem = new XmlElement({
@@ -523,6 +524,17 @@ t.test('create XmlCommentNode', function (t) {
   t.end();
 })
 
+// cloning
+
+t.test('shallow clone XmlElement', function (t) {
+
+  var xmlElem1 = new XmlElement({
+    name: 'item',
+    attributes: {
+      id: '1'
+    }
+  });
+  var xmlElem1 = xmlElem1.clone();
 
   t.end();
 })
