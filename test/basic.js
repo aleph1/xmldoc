@@ -502,6 +502,17 @@ t.test('create XmlTextNode', function (t) {
 
   t.end();
 })
+
+t.test('create XmlCDataNode', function (t) {
+
+  var xmlElem = new XmlCDataNode('<test>');
+  
+  t.equal(xmlElem.type, 'cdata')
+  t.equal(xmlElem.cdata, '<test>');
+
+  t.end();
+})
+
   
   t.equal(xmlElem.text, "test");
 
